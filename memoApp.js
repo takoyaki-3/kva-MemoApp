@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://ob6xd7c7mghcmlmw6nuhm76cvy0nbjag.lambda-url.ap-northeast-1.on.aws';
+const API_ENDPOINT = 'https://gshr35dzdjkgqfjty4kqukxtpe0lrimv.lambda-url.ap-northeast-1.on.aws';
 
 // Function to generate UUID
 function generateUUID() {
@@ -87,7 +87,7 @@ async function getByTag(newMemoData = null, newDocId = null) {
 
   // Fetch each document and display it
   for (let i=0;i<docIds.length;i++) {
-      const docId = docIds[docIds.length-1-i].data;
+      const docId = docIds[i].data;
       console.log(`${API_ENDPOINT}/?key=${docId}`)
       const response = await fetch(`${API_ENDPOINT}/?key=${docId}`,{
         headers: {
