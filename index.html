@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memo App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
     <style>
-        /* 追加のカスタムスタイル */
+        /* 既存のスタイル */
         body {
             font-family: 'Roboto', sans-serif;
         }
@@ -18,6 +20,23 @@
         }
         .mui-btn {
             margin: 5px;
+        }
+
+        /* レスポンシブデザインのための追加スタイル */
+        @media (max-width: 600px) {
+            .button-row {
+                flex-direction: column; /* ボタンを縦に並べる */
+            }
+            .mui-btn {
+                margin-bottom: 10px; /* ボタン間の余白を増やす */
+            }
+            .mui-textfield, .mui-btn, input[type=text], textarea {
+                width: 100%; /* 入力フィールドとボタンを画面幅いっぱいに広げる */
+                box-sizing: border-box; /* パディングとボーダーを幅に含める */
+            }
+            .mui-container {
+                padding: 10px; /* コンテナにパディングを追加 */
+            }
         }
     </style>
 </head>
