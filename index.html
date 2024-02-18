@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memo App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <style>
+        /* 追加のカスタムスタイル */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .mui-btn {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mui-container">
+  <h1 class="mui--text-center">Memo App</h1>
+  <div class="mui-textfield">
+      <input type="text" id="tag" placeholder="Tag (comma separated)">
+  </div>
+  <div class="mui-textfield">
+      <textarea id="docBody" placeholder="Document Body"></textarea>
+  </div>
+  <div class="button-row">
+    <button class="mui-btn mui-btn--raised" onclick="generateKey()">鍵を生成</button>
+    <button class="mui-btn mui-btn--raised" onclick="exportKey()">鍵をエクスポート</button>
+    <button class="mui-btn mui-btn--raised" onclick="importKey()">鍵をインポート</button>
+  </div>
+  <div id="output"></div>
+  <div class="mui--text-center">
+    <button class="mui-btn mui-btn--raised mui-btn--primary" onclick="addMemo()">Add Memo</button>
+    <button class="mui-btn mui-btn--raised mui-btn--accent" onclick="getByTag()">Get Memos by Tag</button>
+  </div>
+  <ul id="memoList" class="mui-list--unstyled"></ul>
+</div>
+<script src="./encrypt.js"></script>
+<script src="//takoyaki3-auth.web.app/auth.js"></script>
+<script src="./memoApp.js"></script>
+</body>
+</html>
