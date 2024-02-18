@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://key-value-array-store.api.takoyaki3.com';
+const API_ENDPOINT = 'https://ob6xd7c7mghcmlmw6nuhm76cvy0nbjag.lambda-url.ap-northeast-1.on.aws';
 
 // Function to generate UUID
 function generateUUID() {
@@ -33,7 +33,10 @@ async function addMemo() {
         'Authorization': `Bearer ${authIdToken}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ key: docId, value: JSON.stringify(memoData) , readable:loggedInUser.email }),
+      body: JSON.stringify({
+        key: docId,
+        data: JSON.stringify(memoData) ,
+        readable:loggedInUser.email }),
   });
 
   // Associate the document ID with each tag
@@ -47,7 +50,7 @@ async function addMemo() {
             'Authorization': `Bearer ${authIdToken}`,
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ key: trimmedTag, value: docId, readable:loggedInUser.email }),
+          body: JSON.stringify({ key: trimmedTag, data: docId, readable:loggedInUser.email }),
       });
   }
 
