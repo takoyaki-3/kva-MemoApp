@@ -1,4 +1,4 @@
-// 暗号化用
+// Encrypts the given text using AES-GCM with a 256-bit key.
 let cryptoKey;
 
 async function init() {
@@ -93,5 +93,5 @@ async function decrypt(encryptedString) {
   }
 }
 
-// ページ読み込み時にinit関数を呼び出す
+// call the init function when the page is loaded
 window.addEventListener('load', init);

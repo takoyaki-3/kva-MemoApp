@@ -10,7 +10,7 @@ function generateUUID() {
 }
 
 async function addMemo() {
-  const tagsInput = document.getElementById('tag').value;  // この行はそのまま
+  const tagsInput = document.getElementById('tag').value;
   const docBody = await encrypt(document.getElementById('docBody').value);
   if (docBody==null){
     return
@@ -20,7 +20,7 @@ async function addMemo() {
   // Generate a random document ID on the client side
   const docId = generateUUID();
 
-  // メモドキュメントの作成
+  // create a memo document
   const memoData = {
     body: docBody,
     createdAt: new Date().toISOString(),
@@ -54,7 +54,7 @@ async function addMemo() {
       });
   }
 
-  // ドキュメント本体のテキストエリアをクリア
+  // clear the document body textarea
   document.getElementById('docBody').value = '';
 
   getByTag(memoData, docId);
@@ -63,7 +63,7 @@ async function addMemo() {
 async function getByTag(newMemoData = null, newDocId = null) {
   const tag = document.getElementById('tag').value;
 
-  // 新しいメモデータが渡された場合、それを直接表示エリアに追加
+  // If new memo data is passed, add it directly to the display area
   if (newMemoData && newDocId) {
     const docBody = await decrypt(newMemoData.body);
 
@@ -106,7 +106,8 @@ async function getByTag(newMemoData = null, newDocId = null) {
 }
 
 document.addEventListener('keydown', function(event) {
-  if (event.ctrlKey && event.keyCode === 13) { // 13はエンターキーのキーコード
-      addMemo();  // addMemoはメモを追加するための既存の関数
+  // 13 is the key code for the Enter key
+  if (event.ctrlKey && event.keyCode === 13) {
+    addMemo();
   }
 });
