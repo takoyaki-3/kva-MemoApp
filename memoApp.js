@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://gshr35dzdjkgqfjty4kqukxtpe0lrimv.lambda-url.ap-northeast-1.on.aws';
+const API_ENDPOINT = 'https://kva-store.api.takoyaki3.com';
 
 // Function to generate UUID
 function generateUUID() {
